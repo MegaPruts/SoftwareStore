@@ -1,0 +1,5 @@
+package com.ff2.xml;
+
+public interface XmlElementContent {
+	BaseXmlElementWriter getWriter();
+}

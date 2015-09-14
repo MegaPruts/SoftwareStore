@@ -1,0 +1,32 @@
+package com.ff2.xml;
+
+import java.io.PrintWriter;
+import java.util.Iterator;
+
+public class XmlElementWriter {
+	final static public void write(IXmlElement xmlElement, PrintWriter writer) {
+		new XmlElementWriter(xmlElement).write(writer);
+	}
+
+	private IXmlElement xmlElement;
+
+	public XmlElementWriter(IXmlElement xmlElement) {
+		this.xmlElement = xmlElement;
+	}
+
+	final public void write(PrintWriter writer) {
+		writer.printf("<%s", xmlElement.getNsTagName());
+		{
+			Iterator<IXmlItem> iterator = xmlElement.getContent().iterator();
+			boolean hasContent = iterator.hasNext();
+			while (iterator.hasNext()) {
+				IXmlItem xmlItem = iterator.next();
+				xmlItem.getWriter().write(writer);
+			}
+			if (!hasContent)
+				writer.print(">");
+		}
+		writer.print(">");
+		writer.printf("</%s>", xmlElement.getNsTagName());
+	}
+}

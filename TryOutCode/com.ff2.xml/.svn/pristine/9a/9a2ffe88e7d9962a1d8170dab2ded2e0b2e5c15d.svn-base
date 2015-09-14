@@ -1,0 +1,34 @@
+package com.ff2.xml;
+
+public class Namespace {
+	private String dummy;
+	private String prefix;
+	private String namespace;
+
+	public Namespace(String namespace) {
+		this(namespace, "");
+	}
+
+	public Namespace(String namespace, String prefix) {
+		this.namespace = namespace;
+		this.prefix = prefix;
+	}
+
+	public String getNamespacePrefix() {
+		return prefix == null ? "" : prefix;
+	}
+
+	public String getName() {
+		return namespace;
+	}
+
+	public String getNamespacePrefix(String appendix) {
+		return getNamespacePrefix().length() > 0 ? getNamespacePrefix()
+				+ appendix : getNamespacePrefix();
+	}
+
+	public String getQualifiedName(String itemName) {
+		return getNamespacePrefix(":") + itemName;
+	}
+
+}
