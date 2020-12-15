@@ -1,0 +1,2 @@
+-privatepackage: bnd.example.systemEvents
+Bundle-Version: 0.0.0.${tstamp}
