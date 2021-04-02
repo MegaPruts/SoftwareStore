@@ -1,0 +1,23 @@
+-resolve: manual
+-runfw: org.eclipse.osgi;version='[3.13.100.v20180827-1536,3.13.100.v20180827-1536]'
+-runee: JavaSE-1.8
+-runrequires: \
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.shell)',\
+	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.command)',\
+	bnd.identity;id='osgi.cmpn',\
+	bnd.identity;version='latest';id='plwtz.temp.reader.command',\
+	bnd.identity;version='latest';id='plwtz.temp.reader.service',\
+	bnd.identity;id='org.apache.felix.gogo.runtime'
+-runbundles: \
+	org.apache.felix.gogo.command;version='[1.0.2,1.0.3)',\
+	org.apache.felix.gogo.runtime;version='[1.0.10,1.0.11)',\
+	org.apache.felix.gogo.shell;version='[1.0.0,1.0.1)',\
+	plwtz.temp.reader.command;version=snapshot,\
+	plwtz.temp.reader.service;version=snapshot,\
+	org.apache.felix.scr;version='[2.1.10,2.1.11)',\
+	osgi.cmpn;version='[4.3.1,4.3.2)'
+-runproperties: \
+	osgi.console=,\
+	osgi.console.enable.builtin=false
+
+

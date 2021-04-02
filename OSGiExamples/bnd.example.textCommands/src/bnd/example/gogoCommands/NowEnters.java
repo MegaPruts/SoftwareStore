@@ -1,4 +1,4 @@
-package bnd.example.systemEvents;
+package bnd.example.gogoCommands;
 
 import org.apache.felix.service.command.CommandProcessor;
 import org.osgi.service.component.annotations.Component;

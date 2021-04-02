@@ -1,0 +1,2 @@
+-privatepackage: org.example.impl
+Export-Package: org.example.api

@@ -1,0 +1,2 @@
+-privatepackage: plwtz.osgi.ds.inverter.impl
+Export-Package: plwtz.osgi.ds.inverter

@@ -1,0 +1,2 @@
+Private-Package: plwtz.osgi.ds.inverter.gogo.command
+Bundle-Version: 0.0.0.${tstamp}

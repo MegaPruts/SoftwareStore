@@ -1,0 +1,10 @@
+javac.source: 1.8
+javac.target: 1.8
+-buildpath: \
+	osgi.annotation,\
+	osgi.core,\
+	osgi.cmpn;version='7.0.0',\
+	org.apache.felix.gogo.runtime,\
+	org.apache.felix.scr,\
+	org.example.api;version=latest
+-sub: *.bnd
