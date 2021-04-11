@@ -1,0 +1,13 @@
+javac.source: 1.8
+javac.target: 1.8
+
+-buildpath: \
+	osgi.annotation;version='7.0.0',\
+	osgi.core;version='7.0.0',\
+	osgi.cmpn;version='7.0.0',\
+	org.apache.felix.gogo.runtime
+
+Bundle-Version: 0.0.0.${tstamp}
+-sub: *.bnd
+-runfw: org.eclipse.osgi;version='[3.13.100.v20180827-1536,3.13.100.v20180827-1536]'
+-runee: JavaSE-1.8

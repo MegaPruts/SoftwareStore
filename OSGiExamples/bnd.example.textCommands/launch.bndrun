@@ -9,21 +9,21 @@
 	osgi.console.enable.builtin=false
 
 -runbundles: \
-	bnd.example.textCommand.api;version='[0.0.0,0.0.1)',\
-	bnd.example.textCommands.providers;version='[0.0.0,0.0.1)',\
 	org.apache.felix.gogo.command;version='[1.0.2,1.0.3)',\
 	org.apache.felix.gogo.runtime;version='[1.0.10,1.0.11)',\
 	osgi.cmpn;version='[4.3.1,4.3.2)',\
-	bnd.examples.textCommands.en;version='[0.0.0,0.0.1)',\
 	org.apache.felix.gogo.shell;version='[1.0.0,1.0.1)',\
-	org.apache.felix.scr;version='[2.1.10,2.1.11)'
+	org.apache.felix.scr;version='[2.1.10,2.1.11)',\
+	bnd.example.textCommand.api;version='[0.0.0,0.0.1)',\
+	bnd.example.textCommands.gogoCommands;version='[0.0.0,0.0.1)',\
+	bnd.examples.textCommands.en;version='[0.0.0,0.0.1)'
 
 -runrequires: \
 	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.shell)',\
 	osgi.identity;filter:='(osgi.identity=org.apache.felix.gogo.command)',\
 	bnd.identity;id='osgi.cmpn',\
-	bnd.identity;version='latest';id='bnd.example.textCommands.providers',\
 	bnd.identity;version='latest';id='bnd.example.textCommand.api',\
-	bnd.identity;version='latest';id='bnd.examples.textCommands.en'
+	bnd.identity;version='latest';id='bnd.examples.textCommands.en',\
+	bnd.identity;version='latest';id='bnd.example.textCommands.gogoCommands'
 -resolve: auto
 -runee: JavaSE-1.8

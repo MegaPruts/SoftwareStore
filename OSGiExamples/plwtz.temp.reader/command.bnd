@@ -1,0 +1,2 @@
+Export-Package: plwtz.temp.service
+-privatepackage: plwtz.temp.reader.command
