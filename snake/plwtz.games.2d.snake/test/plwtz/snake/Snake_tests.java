@@ -3,9 +3,8 @@ package plwtz.snake;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-//import static plwtz.dimension2D.event.MoveEvent.broadcastMoveCommand;
-import static plwtz.game.event.MoveEvent.broadcastMoveCommand;
 import static plwtz.dimension2D.event.listener.CollisionDetector.occupiesPosition;
+import static plwtz.game.event.MoveEvent.broadcastMoveCommand;
 import static plwtz.java.Repeat.repeat;
 
 import java.awt.Dimension;
@@ -21,16 +20,12 @@ import plwtz.dimension2D.event.CollisionDetected;
 import plwtz.dimension2D.event.CollisionDetected.Collector;
 import plwtz.dimension2D.event.SetDirectionEvent;
 import plwtz.dimension2D.event.listener.CollisionDetector;
-import plwtz.game.event.MoveEvent;
 import plwtz.java.events.EventContext;
 import plwtz.snake.Snake.Length;
 
 public class Snake_tests {
 
 	private final Consumer<SetDirectionEvent> setDirectionCommand = (m) -> EventContext.execute(m);
-//	private final Consumer<MoveEvent> broadcastMoveCommand = (m) -> ObjectContext.execute(m);
-
-//	private final MoveEvent moveEvent = new MoveEvent();
 
 	@BeforeEach
 	public void beforeEach() {
@@ -143,7 +138,7 @@ public class Snake_tests {
 
 		CollisionDetector collisionDetector = new CollisionDetector(snakeBoard);
 		Collector collisionDetectorCollector = new CollisionDetected.Collector();
-		move(Direction.SOUTH);
+		move(Direction.NORTH);
 		assertTrue(collisionDetectorCollector.events.size() == 1);
 	}
 
