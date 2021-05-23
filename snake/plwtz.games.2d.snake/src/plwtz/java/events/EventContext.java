@@ -16,6 +16,8 @@ import org.junit.platform.commons.logging.LoggerFactory;
 
 public class EventContext {
 	private static Logger log = LoggerFactory.getLogger(EventContext.class);
+//	static 99Logger log = Logger.getLogger(log4jExample.class.getName());
+	  
 	private static final EventContext INSTANCE = new EventContext();
 
 	public static void reset() {
