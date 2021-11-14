@@ -23,6 +23,8 @@ import plwtz.java.events.EventContext;
 import plwtz.snake.Snake;
 
 public class SnakeGameUI extends JFrame {
+
+	private static final long serialVersionUID = 5818100344081746394L;
 	private static final Font FONT = new Font("Helvetica", Font.BOLD, 14);
 	private static final String GAMEOVER_MESSAGE = "Game over";
 
@@ -54,6 +56,7 @@ public class SnakeGameUI extends JFrame {
 
 	public static class SnakeUIBoard extends JPanel {
 
+		private static final long serialVersionUID = -3228379641685974582L;
 		private Set<Drawable> snakeBoardItems = new HashSet<>();
 
 		public SnakeUIBoard(Dimension boardDimension, KeyListener keyboardAdapter, Drawable... drawablesArray) {

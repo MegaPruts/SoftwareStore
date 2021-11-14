@@ -19,8 +19,7 @@ import plwtz.java.events.EventListener;
 import plwtz.snake.ui.SnakeGameUI;
 import plwtz.snake.ui.SnakeGameUI.SnakeUI;
 
-public class SnakeGameController implements EventListener<GameOverEvent>, GameOverEvent.Handler, MoveEvent.Handler,
-		CollisionDetected.Handler, StartGameEvent.Handler {
+public class SnakeGameController implements EventListener<GameOverEvent> {
 	private Dimension boardDimension;
 	private Snake snake;
 	private SnakeBoard snakeBoard;
@@ -58,7 +57,7 @@ public class SnakeGameController implements EventListener<GameOverEvent>, GameOv
 	public void start(int delay) {
 		EventQueue.invokeLater(() -> {
 			this.moveGenerator = new MoveGenerator(delay);
-			moveGenerator.start();
+//			moveGenerator.start();
 		});
 
 		EventQueue.invokeLater(() -> {
@@ -68,7 +67,6 @@ public class SnakeGameController implements EventListener<GameOverEvent>, GameOv
 		});
 	}
 
-	@Override
 	public void handle(MoveEvent moveEvent) {
 //		snake.move();
 		snakeGameUI.repaint();
@@ -79,7 +77,6 @@ public class SnakeGameController implements EventListener<GameOverEvent>, GameOv
 		gameOver();
 	}
 
-	@Override
 	public void handle(CollisionDetected collissionDetectedEvent) {
 		gameOver();
 	}
@@ -90,7 +87,7 @@ public class SnakeGameController implements EventListener<GameOverEvent>, GameOv
 		MoveGenerator.stop.run();
 	}
 
-	@Override
+//	@Override
 	public void handle(StartGameEvent startGameEvent) {
 		snakeGameUI.snakeUIBoard().clear();
 		snakeGameUI.snakeUIBoard().add(new SnakeUI(snake));

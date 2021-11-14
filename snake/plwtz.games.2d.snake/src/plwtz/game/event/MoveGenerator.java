@@ -8,10 +8,8 @@ import javax.swing.Timer;
 import plwtz.java.events.EventContext;
 import plwtz.java.events.EventListener;
 
-public class MoveGenerator
-		implements ActionListener, EventListener<PauseEvent>, StopMoveGeneratorEvent.Handler, PauseEvent.Handler {
-	public static final Runnable stop = () -> EventContext
-			.execute(new StopMoveGeneratorEvent());
+public class MoveGenerator implements ActionListener, EventListener<PauseEvent> {
+	public static final Runnable stop = () -> EventContext.execute(new StopMoveGeneratorEvent());
 
 	private Timer timer;
 	private boolean paused = true;
@@ -30,16 +28,13 @@ public class MoveGenerator
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (!paused)
-			MoveEvent.broadcastMoveCommand.run();
+		if (!paused) MoveEvent.broadcastMoveCommand.run();
 	}
 
-	@Override
 	public void handle(PauseEvent pauseEvent) {
 		paused = paused ? false : true;
 	}
 
-	@Override
 	public void handle(StopMoveGeneratorEvent stopMoveGeneratorEvent) {
 		timer.stop();
 

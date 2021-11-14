@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import plwtz.dimension2D.Position;
-import plwtz.game.event.MoveEvent;
 import plwtz.java.ToString;
 import plwtz.java.events.Event;
 import plwtz.java.events.EventContext;

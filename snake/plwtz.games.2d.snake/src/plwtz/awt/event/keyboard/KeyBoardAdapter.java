@@ -15,7 +15,7 @@ public class KeyBoardAdapter extends KeyAdapter {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		if (commands.containsKey(e.getKeyCode()))
-			commands.get(e.getKeyCode()).run();
+		if (!commands.containsKey(e.getKeyCode())) return;
+		commands.get(e.getKeyCode()).run();
 	}
 }

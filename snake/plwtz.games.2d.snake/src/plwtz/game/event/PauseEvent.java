@@ -7,10 +7,6 @@ import plwtz.java.events.EventContext;
 public class PauseEvent implements Event {
 	public static final Runnable broadcastPauseCommand = () -> EventContext.execute(new PauseEvent());
 
-	public interface Handler {
-		void handle(PauseEvent moveEvent);
-	}
-
 	public String toString() {
 		return ToString.toString(this);
 	}

@@ -30,26 +30,26 @@ public class EventContext {
 		INSTANCE._execute(event);
 	}
 
-	private final Map<String, Set<EventHandlingMethod>> eventHandlingMethods = new HashMap<>();
+	private final Map<String, Set<EventHandlingMethod<? extends Event>>> eventHandlingMethods = new HashMap<>();
 
 	private void _reset() {
 		eventHandlingMethods.clear();
 	}
 
 	public <E1 extends Event> void _execute(E1 event) {
-		Set<EventHandlingMethod> _eventHandlers = eventHandlingMethods.get(className(event.getClass()));
+		 Set<EventHandlingMethod<? extends Event>> _eventHandlers = eventHandlingMethods.get(className(event.getClass()));
 		if (_eventHandlers != null)
 			_eventHandlers.stream().forEach(h -> handle(h, event));
 	}
 
-	private <E extends Event> void handle(EventHandlingMethod methodHandler, E event) {
+	private <E extends Event> void handle(EventHandlingMethod<? extends Event> methodHandler, E event) {
 		if (methodHandler.handlerInstanceReference.get() == null) {
 			log.info(() -> String.format("%s : removing eventHandler", this.getClass().getSimpleName()));
 			eventHandlingMethods.get(className(event.getClass())).remove(methodHandler);
 			return;
 		}
 
-		EventListener<E> handler = (EventListener<E>) methodHandler.handlerInstanceReference.get();
+		EventListener<? extends Event> handler = (EventListener<? extends Event>) methodHandler.handlerInstanceReference.get();
 		log.info(() -> String.format("%s.handle(%s)", handler.getClass().getSimpleName(), event.toString()));
 		try {
 			methodHandler.methodInstance.invoke(handler, event);
@@ -73,7 +73,7 @@ public class EventContext {
 		String eventClassName = className(eventClassToHandle);
 		if (!eventHandlingMethods.containsKey(eventClassName))
 			eventHandlingMethods.put(eventClassName, new HashSet<>());
-		eventHandlingMethods.get(eventClassName).add(new EventHandlingMethod(handlerInstance, methodInstance));
+		eventHandlingMethods.get(eventClassName).add(new EventHandlingMethod<E4>(handlerInstance, methodInstance));
 	}
 
 	private String className(Class<?> clazz) {
